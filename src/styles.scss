@@ -1,1 +1,77 @@
+@use 'themes' as *;
+
+@use '@nebular/theme/styles/globals' as *;
+
+@include nb-install() {
+  @include nb-theme-global();
+};
 /* You can add global styles to this file, and also import other style files */
+
+// Reset
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+p {
+  padding: 5px 0;
+  margin: 5px 0;
+  word-spacing: 1px;
+  text-align: justify;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  margin: 20px auto;
+}
+
+button {
+  padding: 2px 10px;
+}
+
+input,
+select,
+button {
+  padding: 5px;
+}
+
+.container {
+  margin: 20px 10px;
+}
+
+.d-block > * {
+  display: block;
+  margin: 10px 0;
+}
+
+.d-flex {
+  display: flex;
+}
+
+.flex-justify-content-center {
+  justify-content: center;
+}
+
+.flex-align-item-center {
+  align-items: center;
+}
+
+.flex-fill {
+  flex: 1 1 auto;
+}
+
+.p-20 {
+  padding: 20px;
+}
+
+.m-20 {
+  margin: 20px;
+}
+
+.debug {
+  border: 1px solid black;
+}
