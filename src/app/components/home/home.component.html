@@ -19,7 +19,7 @@
         <td> {{ user.email }} </td>
         <td class="d-flex justify-content-around" *ngIf="isAdmin">
           <button nbButton outline shape="semi-round" size="small" status="info"><nb-icon icon="eye"/>View Profile</button>
-          <button nbButton outline shape="semi-round" size="small" status="danger" (click)="open(user.id)"><nb-icon icon="trash"/>Delete</button>
+          <button nbButton outline shape="semi-round" size="small" status="danger" (click)="openModal(user)"><nb-icon icon="trash"/>Delete</button>
         </td>
       </tr>
     </tbody>

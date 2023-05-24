@@ -35,4 +35,22 @@ export class UserService {
       })
     );
   }
+
+  delete(id: number): Observable<any> {
+    const token = this.storageService.getUser();
+
+    const headers = new HttpHeaders({
+      Authorization: `Bearer ${token}`,
+    });
+
+    return this._httpClient.delete(this.api + id, { headers }).pipe(
+      catchError((error: HttpErrorResponse) => {
+        if (error.status === 401) {
+          // Rediriger l'utilisateur vers la page de connexion, afficher un message, etc.
+          return throwError(() => new Error('Token invalide ou expiré'));
+        }
+        return throwError(() => new Error(error.message));
+      })
+    );
+  }
 }

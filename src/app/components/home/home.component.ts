@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { MdbModalRef, MdbModalService } from 'mdb-angular-ui-kit/modal';
 import { User } from 'src/app/models/user.model';
 import { JwtService } from 'src/app/services/jwt.service';
 import { StorageService } from 'src/app/services/storage.service';
 import { UserService } from 'src/app/services/user.service';
+import { ModalComponent } from 'src/app/shared/components/modal/modal.component';
 
 @Component({
   selector: 'app-home',
@@ -10,15 +12,18 @@ import { UserService } from 'src/app/services/user.service';
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
-  users: any[] = []
+  users: any[] = [];
 
   isLoggedIn = false;
   isAdmin = false;
 
+  modalRef: MdbModalRef<ModalComponent> | null = null;
+
   constructor(
     private storageService: StorageService,
     private jwtService: JwtService,
-    private userService: UserService
+    private userService: UserService,
+    private modalService: MdbModalService
   ) {}
 
   ngOnInit(): void {
@@ -34,9 +39,10 @@ export class HomeComponent implements OnInit {
     }
   }
 
-  open(userID:number): void {
-    console.log(userID);
-
-    
+  openModal(user:User) {
+    this.modalRef = this.modalService.open(ModalComponent, {
+      modalClass: 'modal-dialog-centered',
+      data: { user : user},
+    });
   }
 }

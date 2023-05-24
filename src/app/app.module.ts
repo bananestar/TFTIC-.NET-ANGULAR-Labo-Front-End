@@ -21,6 +21,9 @@ import { HomeComponent } from './components/home/home.component';
 import { NotfoundComponent } from './shared/components/notfound/notfound.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { ModalComponent } from './shared/components/modal/modal.component';
+
+import { MdbModalModule } from 'mdb-angular-ui-kit/modal';
 
 @NgModule({
   declarations: [
@@ -30,6 +33,7 @@ import { HttpClientModule } from '@angular/common/http';
     RegisterComponent,
     HomeComponent,
     NotfoundComponent,
+    ModalComponent,
   ],
   imports: [
     FormsModule,
@@ -46,6 +50,7 @@ import { HttpClientModule } from '@angular/common/http';
     NbButtonModule,
     NbEvaIconsModule,
     NbIconModule,
+    MdbModalModule
   ],
   providers: [
     { provide: LOCALE_ID, useValue: 'fr-FR' },
