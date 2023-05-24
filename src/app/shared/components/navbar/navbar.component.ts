@@ -1,5 +1,5 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { NbMenuItem } from '@nebular/theme';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { StorageService } from 'src/app/services/storage.service';
 
 @Component({
   selector: 'app-navbar',
@@ -7,6 +7,14 @@ import { NbMenuItem } from '@nebular/theme';
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.scss'],
 })
-export class NavbarComponent {
+export class NavbarComponent implements OnInit {
+  isLoggedIn = false;
 
+  constructor(private storageService: StorageService) {}
+
+  ngOnInit(): void {
+    if (this.storageService.isLoggedIn())
+      this.isLoggedIn = this.storageService.isLoggedIn();
+    console.log(this.isLoggedIn ? 'connecter' : 'déconner');
+  }
 }

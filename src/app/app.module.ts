@@ -11,9 +11,8 @@ import {
   NbLayoutModule,
   NbSidebarModule,
   NbMenuModule,
-  NbCardModule,
-  NbActionsModule,
-  NbInputModule,
+  NbButtonModule,
+  NbIconModule,
 } from '@nebular/theme';
 import { NbEvaIconsModule } from '@nebular/eva-icons';
 import { LoginComponent } from './components/login/login.component';
@@ -21,7 +20,7 @@ import { RegisterComponent } from './components/register/register.component';
 import { HomeComponent } from './components/home/home.component';
 import { NotfoundComponent } from './shared/components/notfound/notfound.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -44,10 +43,9 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
     NbSidebarModule.forRoot(),
     NbMenuModule.forRoot(),
     NbLayoutModule,
+    NbButtonModule,
     NbEvaIconsModule,
-    NbCardModule,
-    NbActionsModule,
-    NbInputModule,
+    NbIconModule,
   ],
   providers: [
     { provide: LOCALE_ID, useValue: 'fr-FR' },

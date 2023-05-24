@@ -1,1 +1,27 @@
-<p>home works!</p>
+<div *ngIf="!isLoggedIn">
+ Vous devez vous connecter
+</div>
+
+<div *ngIf="users != []">
+  <table class="table table-dark">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Pseudo</th>
+        <th scope="col">email</th>
+        <th scope="col" *ngIf="isAdmin">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of users">
+        <td> {{ user.id }} </td>
+        <td> {{ user.pseudo }} </td>
+        <td> {{ user.email }} </td>
+        <td class="d-flex justify-content-around" *ngIf="isAdmin">
+          <button nbButton outline shape="semi-round" size="small" status="info"><nb-icon icon="eye"/>View Profile</button>
+          <button nbButton outline shape="semi-round" size="small" status="danger" (click)="open(user.id)"><nb-icon icon="trash"/>Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
