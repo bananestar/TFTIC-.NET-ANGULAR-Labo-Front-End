@@ -24,6 +24,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { ModalComponent } from './shared/components/modal/modal.component';
 
 import { MdbModalModule } from 'mdb-angular-ui-kit/modal';
+import { ProfileComponent } from './components/profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { MdbModalModule } from 'mdb-angular-ui-kit/modal';
     HomeComponent,
     NotfoundComponent,
     ModalComponent,
+    ProfileComponent,
   ],
   imports: [
     FormsModule,

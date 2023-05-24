@@ -3,13 +3,18 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Login } from '../models/login.model';
 import { Register } from '../models/register.model';
+import { StorageService } from './storage.service';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
   api = 'https://localhost:7115/api/User/';
-  constructor(private _httpClient: HttpClient) {}
+  constructor(
+    private _httpClient: HttpClient,
+    private _storageService: StorageService
+  ) {}
 
   login(login: Login): Observable<string> {
     return this._httpClient.post(this.api + 'login/', login, {
@@ -21,5 +26,9 @@ export class AuthService {
     return this._httpClient.post(this.api + 'create/', register, {
       responseType: 'json',
     });
+  }
+
+  logOut(): void {
+    this._storageService.clean();
   }
 }

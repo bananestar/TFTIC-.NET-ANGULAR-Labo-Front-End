@@ -22,7 +22,6 @@ export class LoginComponent implements OnInit {
   errorMessage = '';
   constructor(
     private authService: AuthService,
-    private jwtService: JwtService,
     private storageService: StorageService
   ) {}
 
