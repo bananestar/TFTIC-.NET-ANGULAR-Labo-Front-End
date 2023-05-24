@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { LOCALE_ID, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -6,12 +6,22 @@ import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NavbarComponent } from './shared/components/navbar/navbar.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NbThemeModule, NbLayoutModule, NbSidebarModule, NbMenuModule, NbCardModule, NbActionsModule } from '@nebular/theme';
+import {
+  NbThemeModule,
+  NbLayoutModule,
+  NbSidebarModule,
+  NbMenuModule,
+  NbCardModule,
+  NbActionsModule,
+  NbInputModule,
+} from '@nebular/theme';
 import { NbEvaIconsModule } from '@nebular/eva-icons';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { HomeComponent } from './components/home/home.component';
 import { NotfoundComponent } from './shared/components/notfound/notfound.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -20,9 +30,12 @@ import { NotfoundComponent } from './shared/components/notfound/notfound.compone
     LoginComponent,
     RegisterComponent,
     HomeComponent,
-    NotfoundComponent
+    NotfoundComponent,
   ],
   imports: [
+    FormsModule,
+    HttpClientModule,
+    ReactiveFormsModule,
     BrowserModule,
     AppRoutingModule,
     NgbModule,
@@ -34,8 +47,11 @@ import { NotfoundComponent } from './shared/components/notfound/notfound.compone
     NbEvaIconsModule,
     NbCardModule,
     NbActionsModule,
+    NbInputModule,
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [
+    { provide: LOCALE_ID, useValue: 'fr-FR' },
+  ],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
