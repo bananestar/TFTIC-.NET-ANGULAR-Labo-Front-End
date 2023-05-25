@@ -4,7 +4,6 @@ import { Observable } from 'rxjs';
 import { Login } from '../models/login.model';
 import { Register } from '../models/register.model';
 import { StorageService } from './storage.service';
-import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root',

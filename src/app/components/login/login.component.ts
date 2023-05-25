@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Login } from 'src/app/models/login.model';
 import { AuthService } from 'src/app/services/auth.service';
-import { JwtService } from 'src/app/services/jwt.service';
 import { StorageService } from 'src/app/services/storage.service';
 
 @Component({
